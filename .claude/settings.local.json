@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__zeplin__get_screen",
+      "Bash(node:*)",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

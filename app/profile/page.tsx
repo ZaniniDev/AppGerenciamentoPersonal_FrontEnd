@@ -26,11 +26,6 @@ export default async function ProfilePage() {
     throw new Error("Failed to fetch user train data");
   }
 
-  const needsOnboarding =
-    (homeData.status === 200 && !homeData.data.activeWorkoutPlanId) ||
-    !trainData.data;
-  if (needsOnboarding) redirect("/onboarding");
-
   const user = session.data.user;
   const data = trainData.data;
 
