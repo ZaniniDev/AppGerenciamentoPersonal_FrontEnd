@@ -6,7 +6,6 @@ import { authClient } from "@/app/_lib/auth-client";
 import { Button } from "@/components/ui/button";
 import "dotenv/config";
 
-console.log(process.env.NEXT_PUBLIC_BASE_URL);
 export default function AuthPage() {
   const { data: session, isPending } = authClient.useSession();
 
@@ -22,6 +21,10 @@ export default function AuthPage() {
     if (error) {
       console.error(error.message);
     }
+  };
+
+  const handleEmailLogin = async () => {
+    redirect("/login");
   };
 
   return (
@@ -47,7 +50,12 @@ export default function AuthPage() {
           <h1 className="w-full text-center font-heading text-[32px] font-semibold leading-[1.05] text-primary-foreground">
             O app que vai transformar a forma como você treina.
           </h1>
-
+          <Button
+            onClick={handleEmailLogin}
+            className="h-[38px] rounded-full bg-white px-6 text-black hover:bg-white/90"
+          >
+            Fazer login com e-mail
+          </Button>
           <Button
             onClick={handleGoogleLogin}
             className="h-[38px] rounded-full bg-white px-6 text-black hover:bg-white/90"
@@ -64,7 +72,7 @@ export default function AuthPage() {
         </div>
 
         <p className="font-heading text-xs leading-[1.4] text-primary-foreground/70">
-          ©2026 Copyright FIT.AI. Todos os direitos reservados
+          ©2026 Copyright ZanSystems. Todos os direitos reservados
         </p>
       </div>
     </div>

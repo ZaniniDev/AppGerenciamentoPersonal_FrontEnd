@@ -130,7 +130,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
         </div>
         {embedded ? (
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/">Acessar FIT.AI</Link>
+            <Link href="/">Acessar ZanFit</Link>
           </Button>
         ) : (
           <Button variant="ghost" size="icon" onClick={handleClose}>
