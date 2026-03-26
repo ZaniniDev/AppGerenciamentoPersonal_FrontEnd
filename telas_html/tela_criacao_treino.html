@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Performance - Criar Plano de Treino</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-container-high": "#20201f",
+                "outline-variant": "#484847",
+                "primary": "#97a9ff",
+                "on-secondary": "#100077",
+                "surface-tint": "#97a9ff",
+                "on-surface": "#ffffff",
+                "on-secondary-fixed-variant": "#4542ab",
+                "secondary": "#9392ff",
+                "on-primary-container": "#001966",
+                "secondary-fixed": "#cfcdff",
+                "on-secondary-fixed": "#27218d",
+                "on-primary-fixed-variant": "#00207c",
+                "surface-variant": "#262626",
+                "surface-dim": "#0e0e0e",
+                "tertiary": "#ffa7ea",
+                "on-secondary-container": "#cdcbff",
+                "primary-fixed": "#849aff",
+                "on-tertiary-fixed": "#3d0037",
+                "on-surface-variant": "#adaaaa",
+                "tertiary-dim": "#ea86d5",
+                "on-tertiary-fixed-variant": "#6d1762",
+                "secondary-dim": "#9392ff",
+                "error-container": "#a70138",
+                "on-tertiary": "#6e1863",
+                "surface-bright": "#2c2c2c",
+                "on-background": "#ffffff",
+                "inverse-on-surface": "#565555",
+                "on-primary-fixed": "#000000",
+                "primary-container": "#849aff",
+                "inverse-primary": "#124bef",
+                "surface-container-lowest": "#000000",
+                "primary-fixed-dim": "#718bff",
+                "secondary-fixed-dim": "#bfbeff",
+                "surface-container-highest": "#262626",
+                "on-error": "#490013",
+                "tertiary-fixed": "#fa93e4",
+                "on-error-container": "#ffb2b9",
+                "primary-dim": "#3d65ff",
+                "inverse-surface": "#fcf9f8",
+                "secondary-container": "#3b37a0",
+                "on-primary": "#002282",
+                "background": "#0e0e0e",
+                "outline": "#767575",
+                "error-dim": "#d73357",
+                "tertiary-fixed-dim": "#ea86d5",
+                "on-tertiary-container": "#620959",
+                "error": "#ff6e84",
+                "surface-container": "#1a1a1a",
+                "surface": "#0e0e0e",
+                "tertiary-container": "#fa93e4",
+                "surface-container-low": "#131313"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(44, 44, 44, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #97a9ff !important;
+            box-shadow: 0 0 0 1px #97a9ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary/30 min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#0e0e0e] dark:bg-[#0e0e0e] flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#97a9ff] hover:opacity-80 transition-opacity Active: scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold tracking-tight text-xl text-on-surface">Criar Plano de Treino Detalhado</h1>
+</div>
+<div class="style_brand_logo text-[#97a9ff] font-black tracking-tighter text-2xl">EP</div>
+<div class="bg-gradient-to-b from-[#1a1a1a] to-transparent h-px absolute bottom-0 left-0 w-full"></div>
+</header>
+<main class="max-w-3xl mx-auto px-6 pt-8 space-y-10">
+<!-- Plan Info Section -->
+<section class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-medium text-on-surface-variant">Nome do Plano <span class="text-error">*</span></label>
+<input class="bg-surface-container border border-outline-variant/15 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-all" placeholder="Ex: Hipertrofia Avançada 2.0" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-medium text-on-surface-variant">Data de Início <span class="text-error">*</span></label>
+<div class="relative">
+<input class="bg-surface-container border border-outline-variant/15 rounded-xl px-4 py-3 text-on-surface w-full appearance-none" type="date"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-medium text-on-surface-variant">Objetivo do Plano</label>
+<select class="bg-surface-container border border-outline-variant/15 rounded-xl px-4 py-3 text-on-surface focus:ring-1 focus:ring-primary appearance-none">
+<option value="hipertrofia">Hipertrofia</option>
+<option value="perda_peso">Perda de Peso</option>
+<option value="resistencia">Resistência</option>
+<option value="forca">Força Máxima</option>
+</select>
+</div>
+</section>
+<!-- Weekly Schedule Section -->
+<section class="space-y-4">
+<h2 class="font-headline text-2xl font-extrabold tracking-tight text-primary">Programação Semanal</h2>
+<!-- Segunda-Feira (Expanded) -->
+<div class="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10">
+<div class="p-6 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<h3 class="font-headline font-bold text-lg">Segunda-Feira</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_less">expand_less</span>
+</div>
+<div class="p-6 space-y-8">
+<!-- Time & Basic Info -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs uppercase tracking-wider font-bold text-outline">Início</label>
+<input class="bg-surface-container-highest rounded-xl px-4 py-2 border-none" type="time" value="07:00"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs uppercase tracking-wider font-bold text-outline">Fim</label>
+<input class="bg-surface-container-highest rounded-xl px-4 py-2 border-none" type="time" value="08:30"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs uppercase tracking-wider font-bold text-outline">Nome do Treino</label>
+<input class="bg-surface-container-highest rounded-xl px-4 py-2 border-none" placeholder="Treino A - Superiores" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs uppercase tracking-wider font-bold text-outline">Tipo de Treino</label>
+<input class="bg-surface-container-highest rounded-xl px-4 py-2 border-none" placeholder="Musculação" type="text"/>
+</div>
+</div>
+<!-- Search Exercise Section -->
+<div class="pt-6 border-t border-outline-variant/10 space-y-6">
+<div class="flex flex-col gap-3">
+<label class="font-headline font-bold text-md text-on-surface">Buscar Exercício <span class="text-error">*</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-highest rounded-full pl-12 pr-4 py-3 border border-outline-variant/10 focus:border-primary/50" placeholder="Pesquisar exercício..." type="text"/>
+</div>
+</div>
+<!-- Search Result Card -->
+<div class="bg-surface-container-high rounded-2xl p-4 flex items-center gap-4 border border-primary/20 shadow-[0_0_20px_rgba(151,169,255,0.05)]">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-surface">
+<img alt="Remada Curvada" class="w-full h-full object-cover grayscale contrast-125" data-alt="close-up of a weightlifter performing a bent over row with a barbell in a dark professional gym with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCjRToFQ7QGg4bJhm-3pESr4qPxeyk3LsTILbvIoGH95HyPheQ5IhPqVBuXSKhfDv2HoQse5SmMUlDYoq4-YMgNXcKASk47AOoT6vfloqYC1il-pjhG6L4Z1Fr5tWBE2yLreprY1idat6k0xMPVMVB8fxe03iujxVXgG9svlUzD6WMoe63XNLGvyZ0zQLfUtSeTUTBUg5ihzJCHQvP0UPFu5KJHMHO7nnQWsSuQELotDEm_0cp0vn2ONsN5PzIkGkPmI9cmMEY248P"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline font-bold text-on-surface">Remada Curvada com Barra</h4>
+<p class="text-sm text-on-surface-variant font-medium">Dorsais, Trapézio, Bíceps</p>
+</div>
+<button class="bg-primary-dim text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors Active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Exercise Fields -->
+<div class="space-y-4">
+<div class="grid grid-cols-3 gap-3">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-outline">Séries <span class="text-error">*</span></label>
+<input class="bg-surface-container-highest rounded-xl px-3 py-2 text-center border-none focus:ring-1 focus:ring-primary" type="text" value="4"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-outline">Reps <span class="text-error">*</span></label>
+<input class="bg-surface-container-highest rounded-xl px-3 py-2 text-center border-none focus:ring-1 focus:ring-primary" type="text" value="12"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-outline">Carga</label>
+<input class="bg-surface-container-highest rounded-xl px-3 py-2 text-center border-none focus:ring-1 focus:ring-primary" type="text" value="60kg"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-outline">Observações</label>
+<textarea class="bg-surface-container-highest rounded-xl px-4 py-2 border-none focus:ring-1 focus:ring-primary resize-none" rows="2">Pausa de 60s entre séries</textarea>
+</div>
+<button class="w-full py-3 rounded-xl bg-surface-variant text-on-surface font-bold hover:bg-surface-container-highest transition-colors border border-outline-variant/20">
+                                Adicionar Exercício
+                            </button>
+</div>
+</div>
+<!-- Added Exercises List -->
+<div class="space-y-3 pt-4">
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest/40 rounded-xl border-l-2 border-primary-dim">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Supino Reto com Barra</span>
+<span class="text-xs text-on-surface-variant">4 x 10 | 80kg</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-error transition-colors" data-icon="close">close</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quarta-Feira (Collapsed) -->
+<div class="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10">
+<div class="p-6 flex items-center justify-between opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+<h3 class="font-headline font-bold text-lg">Quarta-Feira</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Sexta-Feira (Collapsed) -->
+<div class="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10">
+<div class="p-6 flex items-center justify-between opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+<h3 class="font-headline font-bold text-lg">Sexta-Feira</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<section class="flex flex-col gap-4 pb-12">
+<button class="w-full py-4 rounded-2xl border-2 border-dashed border-outline-variant/30 text-outline font-bold flex items-center justify-center gap-2 hover:border-primary/50 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Adicionar outro dia
+            </button>
+<button class="w-full py-5 rounded-full bg-gradient-to-r from-primary-dim to-primary text-on-primary font-extrabold text-lg shadow-[0_8px_32px_rgba(61,101,255,0.3)] Active:scale-95 transition-transform duration-200">
+                Salvar Plano Completo
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#0e0e0e]/60 backdrop-blur-xl dark:bg-[#0e0e0e]/60 rounded-t-[24px] shadow-[0_-4px_40px_rgba(151,169,255,0.08)] border-t border-[#97a9ff]/15">
+<a class="flex flex-col items-center justify-center text-[#262626] p-2 hover:text-[#97a9ff]/80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="font-inter text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#3d65ff]/20 text-[#97a9ff] rounded-full px-5 py-2 Active: scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="fitness_center">fitness_center</span>
+<span class="font-inter text-[10px] font-medium tracking-wide uppercase mt-1">Workouts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#262626] p-2 hover:text-[#97a9ff]/80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="insights">insights</span>
+<span class="font-inter text-[10px] font-medium tracking-wide uppercase mt-1">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#262626] p-2 hover:text-[#97a9ff]/80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-inter text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

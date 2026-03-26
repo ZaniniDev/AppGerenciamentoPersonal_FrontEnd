@@ -1,0 +1,278 @@
+<!DOCTYPE html><html class="dark" lang="pt-br"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fit.AI - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#fa93e4",
+              "on-tertiary-container": "#620959",
+              "error-dim": "#d73357",
+              "tertiary": "#ffa7ea",
+              "surface-container": "#1a1a1a",
+              "primary-fixed": "#849aff",
+              "on-surface": "#ffffff",
+              "primary": "#97a9ff",
+              "surface-bright": "#2c2c2c",
+              "on-secondary": "#100077",
+              "surface-container-lowest": "#000000",
+              "surface-container-high": "#20201f",
+              "tertiary-container": "#fa93e4",
+              "inverse-surface": "#fcf9f8",
+              "outline-variant": "#484847",
+              "on-primary": "#002282",
+              "secondary": "#9392ff",
+              "secondary-dim": "#9392ff",
+              "on-secondary-container": "#cdcbff",
+              "surface": "#0e0e0e",
+              "inverse-primary": "#124bef",
+              "on-error": "#490013",
+              "secondary-container": "#3b37a0",
+              "on-surface-variant": "#adaaaa",
+              "on-tertiary-fixed-variant": "#6d1762",
+              "surface-tint": "#97a9ff",
+              "tertiary-dim": "#ea86d5",
+              "surface-variant": "#262626",
+              "primary-dim": "#3d65ff",
+              "primary-fixed-dim": "#718bff",
+              "surface-dim": "#0e0e0e",
+              "secondary-fixed": "#cfcdff",
+              "on-primary-container": "#001966",
+              "primary-container": "#849aff",
+              "error": "#ff6e84",
+              "on-tertiary": "#6e1863",
+              "surface-container-low": "#131313",
+              "tertiary-fixed-dim": "#ea86d5",
+              "on-primary-fixed-variant": "#00207c",
+              "secondary-fixed-dim": "#bfbeff",
+              "on-tertiary-fixed": "#3d0037",
+              "surface-container-highest": "#262626",
+              "on-error-container": "#ffb2b9",
+              "inverse-on-surface": "#565555",
+              "on-primary-fixed": "#000000",
+              "on-background": "#ffffff",
+              "error-container": "#a70138",
+              "background": "#0e0e0e",
+              "outline": "#767575",
+              "on-secondary-fixed": "#27218d",
+              "on-secondary-fixed-variant": "#4542ab"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 flex items-center justify-between px-6 h-16 shadow-2xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Close up of fit male face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEMUhEetVrYbO4D8rjse_1IDaIq_A5lVsUFBNIhP9v42sk8MxvM_c2Ufh6vhWwmeBD3cUytFsovJJu0of1zwGSlK6qp3C-CHHRSoZUacsnC43U_rOrTq0efXTqyzezdd0cYkTISE9M7Hj6H-XhV9Xlvh2ACdPdxTmI1bNxo9UbhhHag462IWkUEht82MOY0rMe7Sd5gOJvtVkeoIn858r14r6-JioreoE7JNUfu0mYndUfqULSpM-VSNS0zWeK-f8Wd3TpbAXAaMwV" style="">
+</div>
+<span class="text-xl font-black tracking-tighter text-white font-headline" style="">Fit.AI</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-400 hover:text-blue-400 transition-colors active:scale-95 duration-100" style="">
+<span class="material-symbols-outlined" data-icon="notifications" style="">notifications</span>
+</button>
+</div>
+</nav>
+<main class="pt-16 px-6 space-y-8">
+<!-- User Header Section -->
+<section class="relative mt-6 rounded-3xl overflow-hidden aspect-[16/10] flex items-end p-8 group">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-700" data-alt="Professional gym athlete lifting weights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmk-gbMdYy345GwAtHUUfnpCj5vKctvXeMjZX-ByJrAPnT8u14Nhb-jbKrB7fEJmOQ0lKcVxNf8YEnBudJG0Sf7LphyFDGhjj_SvTLUwTBwFnVPKRoN_-Fa85yb6QVavgR9pqlL-mkJoD9oNjsITXgTjN36R_7r1MZ82fGPXIqPEAKQJNJFiZMPbKoQytWKPSoSZGRDfgV8_pV0t3352xdJbxEO_mqeiqrdPzfThGD9pnVzVnNsqVOfJF7K6X_PlM023dLGQeXVCoB" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full">
+<p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2" style="">Seja bem-vindo</p>
+<h1 class="font-headline text-4xl font-extrabold tracking-tight" style="">Olá, Pedro</h1>
+</div>
+</section>
+<!-- Consistência (Streak) Section -->
+<section class="bg-surface-container rounded-3xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline text-lg font-bold" style="">Consistência</h2>
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="local_fire_department" style="font-variation-settings: &quot;FILL&quot; 1;">local_fire_department</span>
+<span class="text-primary font-bold text-sm" style="">15 dias</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-[0_0_15px_rgba(151,169,255,0.4)]">
+<span class="text-xs font-bold" style="">S</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">SEG</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-[0_0_15px_rgba(151,169,255,0.4)]">
+<span class="text-xs font-bold" style="">T</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">TER</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-[0_0_15px_rgba(151,169,255,0.4)]">
+<span class="text-xs font-bold" style="">Q</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">QUA</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-[0_0_15px_rgba(151,169,255,0.4)]">
+<span class="text-xs font-bold" style="">Q</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">QUI</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant">
+<span class="text-xs font-bold" style="">S</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">SEX</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant">
+<span class="text-xs font-bold" style="">S</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">SAB</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest border border-outline-variant/30 text-on-surface-variant">
+<span class="text-xs font-bold" style="">D</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">DOM</span>
+</div>
+</div>
+</section>
+<!-- Treino de Hoje Section -->
+<section class="space-y-4">
+<h2 class="font-headline text-lg font-bold" style="">Treino de Hoje</h2>
+<div class="relative rounded-3xl overflow-hidden bg-surface-container group cursor-pointer active:scale-[0.98] transition-all duration-200">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-dim to-primary opacity-10 group-hover:opacity-20 transition-opacity"></div>
+<div class="p-8 flex justify-between items-center relative z-10">
+<div class="space-y-4">
+<div class="space-y-1">
+<span class="text-primary font-label text-xs uppercase tracking-widest font-bold" style="">Força &amp; Volume</span>
+<h3 class="font-headline text-3xl font-extrabold italic tracking-tight" style="">Superiores</h3>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5 bg-surface-container-lowest/50 px-3 py-1.5 rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule" style="">schedule</span>
+<span class="text-xs font-bold" style="">45 min</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest/50 px-3 py-1.5 rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="exercise" style="">exercise</span>
+<span class="text-xs font-bold" style="">4 exercícios</span>
+</div>
+</div>
+</div>
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-[0_0_25px_rgba(151,169,255,0.6)]">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="play_arrow" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Progresso do Plano Section -->
+<section class="bg-surface-container-low rounded-3xl p-6 border border-outline-variant/10">
+<div class="flex justify-between items-end mb-4">
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs font-medium uppercase tracking-wider" style="">Progresso do Plano</p>
+<h4 class="font-headline font-bold text-xl" style="">Bulking Elite v.4</h4>
+</div>
+<span class="font-headline font-black text-2xl text-primary" style="">65%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-dim to-primary rounded-full w-[65%] shadow-[0_0_10px_rgba(151,169,255,0.3)]"></div>
+</div>
+<div class="flex justify-between mt-3">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest" style="">Semana 3 de 4</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest" style="">Faltam 8 treinos</span>
+</div>
+</section>
+<!-- Métricas Rápidas (Bento Style) -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-3xl p-6 flex flex-col justify-between aspect-square">
+<div class="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="weight" style="">weight</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-1" style="">Peso</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-headline font-black tracking-tighter" style="">82</span>
+<span class="text-sm font-bold text-on-surface-variant" style="">kg</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-3xl p-6 flex flex-col justify-between aspect-square">
+<div class="w-10 h-10 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="percent" style="">percent</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-1" style="">Gordura</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-headline font-black tracking-tighter" style="">15</span>
+<span class="text-sm font-bold text-on-surface-variant" style="">%</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 bg-surface-container rounded-3xl p-6 flex items-center justify-between border border-primary/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-dim/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring" style="">monitoring</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mb-1" style="">Total Treinos</p>
+<span class="text-2xl font-headline font-black tracking-tighter" style="">128</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold uppercase text-primary tracking-widest" style="">+12% este mês</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-lg flex justify-around items-center px-4 pb-8 pt-4 rounded-t-3xl shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-blue-500 scale-110 transition-transform active:scale-90 transition-all duration-200" href="#" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="home" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-300 active:scale-90 transition-all duration-200" href="#" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_today" style="">calendar_today</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white scale-125 -translate-y-4 bg-primary p-3 rounded-full shadow-[0_0_20px_rgba(151,169,255,0.5)] active:scale-90 transition-all duration-200" href="#" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="add_circle" style="font-variation-settings: &quot;FILL&quot; 1;">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-300 active:scale-90 transition-all duration-200" href="#" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="analytics" style="">analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-300 active:scale-90 transition-all duration-200" href="#" style="">
+<span class="material-symbols-outlined text-2xl" data-icon="person" style="">person</span>
+</a>
+</nav>
+</body></html>

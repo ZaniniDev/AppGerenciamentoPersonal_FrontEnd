@@ -506,6 +506,134 @@ export type StartWorkoutSession500 = {
   code: string;
 };
 
+export type CreateWorkoutPlanForUserBodyWorkoutDaysItemWeekDay = typeof CreateWorkoutPlanForUserBodyWorkoutDaysItemWeekDay[keyof typeof CreateWorkoutPlanForUserBodyWorkoutDaysItemWeekDay];
+
+
+export const CreateWorkoutPlanForUserBodyWorkoutDaysItemWeekDay = {
+  MONDAY: 'MONDAY',
+  TUESDAY: 'TUESDAY',
+  WEDNESDAY: 'WEDNESDAY',
+  THURSDAY: 'THURSDAY',
+  FRIDAY: 'FRIDAY',
+  SATURDAY: 'SATURDAY',
+  SUNDAY: 'SUNDAY',
+} as const;
+
+export type CreateWorkoutPlanForUserBodyWorkoutDaysItemExercisesItem = {
+  /** @minimum 0 */
+  order: number;
+  /** @minLength 1 */
+  name: string;
+  /** @minimum 1 */
+  sets: number;
+  /** @minimum 1 */
+  reps: number;
+  /** @minimum 0 */
+  restTimeInSeconds: number;
+  obs?: string;
+  exerciseLoad?: string;
+  exerciseId?: string;
+};
+
+export type CreateWorkoutPlanForUserBodyWorkoutDaysItem = {
+  /** @minLength 1 */
+  name: string;
+  weekDay: CreateWorkoutPlanForUserBodyWorkoutDaysItemWeekDay;
+  isRest?: boolean;
+  /** @minimum 1 */
+  estimatedDurationInSeconds: number;
+  coverImageUrl?: string;
+  /** @pattern ^(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?$ */
+  workoutTime?: string;
+  exercises: CreateWorkoutPlanForUserBodyWorkoutDaysItemExercisesItem[];
+};
+
+export type CreateWorkoutPlanForUserBody = {
+  /** @minLength 1 */
+  name: string;
+  /** @minLength 1 */
+  planGoal: string;
+  /** @pattern ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$ */
+  workoutStartDate?: string;
+  /** @pattern ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$ */
+  workoutFinishDate?: string;
+  workoutDays: CreateWorkoutPlanForUserBodyWorkoutDaysItem[];
+};
+
+export type CreateWorkoutPlanForUser201WorkoutDaysItemWeekDay = typeof CreateWorkoutPlanForUser201WorkoutDaysItemWeekDay[keyof typeof CreateWorkoutPlanForUser201WorkoutDaysItemWeekDay];
+
+
+export const CreateWorkoutPlanForUser201WorkoutDaysItemWeekDay = {
+  MONDAY: 'MONDAY',
+  TUESDAY: 'TUESDAY',
+  WEDNESDAY: 'WEDNESDAY',
+  THURSDAY: 'THURSDAY',
+  FRIDAY: 'FRIDAY',
+  SATURDAY: 'SATURDAY',
+  SUNDAY: 'SUNDAY',
+} as const;
+
+export type CreateWorkoutPlanForUser201WorkoutDaysItemExercisesItem = {
+  /** @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$ */
+  id: string;
+  order: number;
+  name: string;
+  sets: number;
+  reps: number;
+  restTimeInSeconds: number;
+  obs?: string;
+  exerciseLoad?: string;
+  /**
+   * @nullable
+   * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$
+   */
+  exerciseId?: string | null;
+};
+
+export type CreateWorkoutPlanForUser201WorkoutDaysItem = {
+  /** @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$ */
+  id: string;
+  name: string;
+  weekDay: CreateWorkoutPlanForUser201WorkoutDaysItemWeekDay;
+  isRest: boolean;
+  estimatedDurationInSeconds: number;
+  coverImageUrl?: string;
+  workoutTime?: string;
+  exercises: CreateWorkoutPlanForUser201WorkoutDaysItemExercisesItem[];
+};
+
+export type CreateWorkoutPlanForUser201 = {
+  /** @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$ */
+  id: string;
+  name: string;
+  planGoal?: string;
+  /** @pattern ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$ */
+  workoutStartDate?: string;
+  /** @pattern ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$ */
+  workoutFinishDate?: string;
+  workoutDays: CreateWorkoutPlanForUser201WorkoutDaysItem[];
+};
+
+export type CreateWorkoutPlanForUser401 = {
+  error: string;
+  code: string;
+};
+
+export type CreateWorkoutPlanForUser403 = {
+  error: string;
+  code: string;
+};
+
+export type CreateWorkoutPlanForUser404 = {
+  error: string;
+  code: string;
+};
+
+export type CreateWorkoutPlanForUser500 = {
+  error: string;
+  code: string;
+};
+
 export type UpdateWorkoutSessionBody = {
   /** @pattern ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$ */
   completedAt: string;
@@ -1031,6 +1159,66 @@ export const startWorkoutSession = async (workoutPlanId: string,
     method: 'POST'
     
     
+  }
+);}
+  
+
+
+/**
+ * @summary Create a workout plan for a specific user
+ */
+export type createWorkoutPlanForUserResponse201 = {
+  data: CreateWorkoutPlanForUser201
+  status: 201
+}
+
+export type createWorkoutPlanForUserResponse401 = {
+  data: CreateWorkoutPlanForUser401
+  status: 401
+}
+
+export type createWorkoutPlanForUserResponse403 = {
+  data: CreateWorkoutPlanForUser403
+  status: 403
+}
+
+export type createWorkoutPlanForUserResponse404 = {
+  data: CreateWorkoutPlanForUser404
+  status: 404
+}
+
+export type createWorkoutPlanForUserResponse500 = {
+  data: CreateWorkoutPlanForUser500
+  status: 500
+}
+
+export type createWorkoutPlanForUserResponseSuccess = (createWorkoutPlanForUserResponse201) & {
+  headers: Headers;
+};
+export type createWorkoutPlanForUserResponseError = (createWorkoutPlanForUserResponse401 | createWorkoutPlanForUserResponse403 | createWorkoutPlanForUserResponse404 | createWorkoutPlanForUserResponse500) & {
+  headers: Headers;
+};
+
+export type createWorkoutPlanForUserResponse = (createWorkoutPlanForUserResponseSuccess | createWorkoutPlanForUserResponseError)
+
+export const getCreateWorkoutPlanForUserUrl = (userId: string,) => {
+
+
+  
+
+  return `/workout-plans/user/${userId}`
+}
+
+export const createWorkoutPlanForUser = async (userId: string,
+    createWorkoutPlanForUserBody: CreateWorkoutPlanForUserBody, options?: RequestInit): Promise<createWorkoutPlanForUserResponse> => {
+  
+  return customFetch<createWorkoutPlanForUserResponse>(getCreateWorkoutPlanForUserUrl(userId),
+  {      
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      createWorkoutPlanForUserBody,)
   }
 );}
   
